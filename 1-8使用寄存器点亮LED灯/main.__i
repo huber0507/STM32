@@ -1,0 +1,8 @@
+-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c
+-fno-rtti -funsigned-char -fshort-enums -fshort-wchar
+-D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../1-8Ê¹ÓÃ¼Ä´æÆ÷µãÁÁLEDµÆ
+-I./RTE/_Target_1
+-ID:/Altlog/Software/User/jiang/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include
+-ID:/Altlog/Software/User/jiang/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/1.1.0/Device/Include
+-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_HD -D_RTE_
+-o ./main.o -MD "main.c"
