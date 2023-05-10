@@ -1,0 +1,6 @@
+--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\Libraries\CMSIS -I ..\User -I ..\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\User\led
+-I.\RTE\_Target_1
+-ID:\Altlog\SoftWare\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include
+-ID:\Altlog\SoftWare\Keil_v5\ARM\CMSIS\Include
+-D__UVISION_VERSION="526" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD
+-o .\mian.o --omf_browse .\mian.crf --depend .\mian.d "..\User\mian.c"
