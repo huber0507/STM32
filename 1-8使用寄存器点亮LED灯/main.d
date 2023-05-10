@@ -1,1 +1,2 @@
-./main.o: main.c stm32f10x.h
+.\main.o: main.c
+.\main.o: stm32f10x.h

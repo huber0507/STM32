@@ -9,12 +9,12 @@ License Information: 1 WEI, 1, LIC=TA39H-WPT1P-SGH7K-ZKJAV-M93MG-L0G7J
  
 Tool Versions:
 Toolchain:       MDK-ARM Professional  Version: 5.36.0.0
-Toolchain Path:  D:\Altlog\Software\Keil_v5\ARM\ARMCLANG\Bin
-C Compiler:      ArmClang.exe V6.16
-Assembler:       Armasm.exe V6.16
-Linker/Locator:  ArmLink.exe V6.16
-Library Manager: ArmAr.exe V6.16
-Hex Converter:   FromElf.exe V6.16
+Toolchain Path:  D:\Altlog\Software\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 7 (build 960)
+Assembler:       Armasm.exe V5.06 update 7 (build 960)
+Linker/Locator:  ArmLink.exe V5.06 update 7 (build 960)
+Library Manager: ArmAr.exe V5.06 update 7 (build 960)
+Hex Converter:   FromElf.exe V5.06 update 7 (build 960)
 CPU DLL:         SARMCM3.DLL V5.36.0.0
 Dialog DLL:      DCM.DLL V1.17.3.0
 Target DLL:      CMSIS_AGDI.dll V1.33.0.0
@@ -22,39 +22,17 @@ Dialog DLL:      TCM.DLL V1.53.0.0
  
 <h2>Project:</h2>
 D:\Altlog\Hardware\STM32\1-8Ê¹ÓÃ¼Ä´æÆ÷µãÁÁLEDµÆ\LED-REG.uvprojx
-Project File Date:  05/09/2023
+Project File Date:  05/10/2023
 
 <h2>Output:</h2>
-*** Using Compiler 'V6.16', folder: 'D:\Altlog\Software\Keil_v5\ARM\ARMCLANG\Bin'
-Build target 'Target 1'
-main.c(6): error: use of undeclared identifier 'RCC_APB2ENR'
-        RCC_APB2ENR  |=(1<<3);
-        ^
-main.c(8): error: use of undeclared identifier 'GPIOB_CRL'
-        GPIOB_CRL &= ~(0x0F<<(4*0));
-        ^
-main.c(10): error: use of undeclared identifier 'GPIOB_CRL'
-        GPIOB_CRL |=(1<<(4*0));
-        ^
-main.c(12): error: use of undeclared identifier 'GPIOB_ODR'
-        GPIOB_ODR        |=<A3><A8>0<<0<A3><A9>;
-        ^
-main.c(12): error: source file is not valid UTF-8
-        GPIOB_ODR        |=<A3><A8>0<<0<A3><A9>;
-                           ^
-main.c(12): error: source file is not valid UTF-8
-        GPIOB_ODR        |=<A3><A8>0<<0<A3><A9>;
-                               ^
-main.c(12): error: source file is not valid UTF-8
-        GPIOB_ODR        |=<A3><A8>0<<0<A3><A9>;
-                                       ^
-main.c(12): error: source file is not valid UTF-8
-        GPIOB_ODR        |=<A3><A8>0<<0<A3><A9>;
-                                           ^
-8 errors generated.
-compiling main.c...
+*** Using Compiler 'V5.06 update 7 (build 960)', folder: 'D:\Altlog\Software\Keil_v5\ARM\ARMCC\Bin'
+Rebuild target 'Target 1'
 assembling startup_stm32f10x_hd.s...
-".\LED-REG.axf" - 8 Error(s), 0 Warning(s).
+compiling main.c...
+linking...
+Program Size: Code=268 RO-data=320 RW-data=0 ZI-data=1024  
+FromELF: creating hex file...
+".\LED-REG.axf" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -77,8 +55,7 @@ Package Vendor: Keil
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.5.0
-Target not created.
-Build Time Elapsed:  00:00:00
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>
