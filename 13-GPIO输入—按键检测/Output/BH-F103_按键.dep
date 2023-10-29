@@ -90,7 +90,11 @@ I (..\..\Libraries\FWlib\inc\stm32f10x_tim.h)(0x6364E266)
 I (..\..\Libraries\FWlib\inc\stm32f10x_usart.h)(0x6364E266)
 I (..\..\Libraries\FWlib\inc\stm32f10x_wwdg.h)(0x6364E266)
 I (..\..\Libraries\FWlib\inc\misc.h)(0x6364E266)
+<<<<<<< HEAD
 F (..\..\User\main.c)(0x6533D89C)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I ..\..\Libraries\CMSIS -I ..\..\User -I ..\..\Libraries\FWlib\inc -I ..\..\User\Key -I ..\..\User\Led-I.\RTE\_____-ID:\Altlog\SoftWare\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-ID:\Altlog\SoftWare\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\..\output\main.o --omf_browse ..\..\output\main.crf --depend ..\..\output\main.d)
+=======
+F (..\..\User\main.c)(0x6533D60B)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I ..\..\Libraries\CMSIS -I ..\..\User -I ..\..\Libraries\FWlib\inc -I ..\..\User\Key -I ..\..\User\Led-I.\RTE\_____-ID:\Altlog\SoftWare\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-ID:\Altlog\SoftWare\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\..\output\main.o --omf_browse ..\..\output\main.crf --depend ..\..\output\main.d)
+>>>>>>> 2e62c8a091133815c988048f2f5bf0f4c07255f0
 I (..\..\Libraries\CMSIS\stm32f10x.h)(0x6364E266)
 I (..\..\Libraries\CMSIS\core_cm3.h)(0x6364E266)
 I (D:\Altlog\SoftWare\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
