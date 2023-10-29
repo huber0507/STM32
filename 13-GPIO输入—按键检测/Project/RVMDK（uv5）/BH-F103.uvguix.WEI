@@ -1861,33 +1861,52 @@
       <ActiveTab>3</ActiveTab>
       <Doc>
         <Name>..\..\User\main.c</Name>
+<<<<<<< HEAD
         <ColumnNumber>16</ColumnNumber>
         <TopLine>1</TopLine>
         <CurrentLine>41</CurrentLine>
+=======
+        <ColumnNumber>6</ColumnNumber>
+        <TopLine>16</TopLine>
+        <CurrentLine>43</CurrentLine>
+>>>>>>> 2e62c8a091133815c988048f2f5bf0f4c07255f0
         <Folding>1</Folding>
         <ContractedFolders></ContractedFolders>
         <PaneID>0</PaneID>
       </Doc>
       <Doc>
         <Name>..\..\User\Led\bsp_led.c</Name>
+<<<<<<< HEAD
         <ColumnNumber>20</ColumnNumber>
         <TopLine>1</TopLine>
         <CurrentLine>44</CurrentLine>
+=======
+        <ColumnNumber>0</ColumnNumber>
+        <TopLine>25</TopLine>
+        <CurrentLine>29</CurrentLine>
+>>>>>>> 2e62c8a091133815c988048f2f5bf0f4c07255f0
         <Folding>1</Folding>
         <ContractedFolders></ContractedFolders>
         <PaneID>0</PaneID>
       </Doc>
       <Doc>
         <Name>..\..\User\Key\bsp_key.c</Name>
+<<<<<<< HEAD
         <ColumnNumber>28</ColumnNumber>
         <TopLine>30</TopLine>
         <CurrentLine>60</CurrentLine>
+=======
+        <ColumnNumber>6</ColumnNumber>
+        <TopLine>1</TopLine>
+        <CurrentLine>63</CurrentLine>
+>>>>>>> 2e62c8a091133815c988048f2f5bf0f4c07255f0
         <Folding>1</Folding>
         <ContractedFolders></ContractedFolders>
         <PaneID>0</PaneID>
       </Doc>
       <Doc>
         <Name>..\..\User\./led/bsp_led.h</Name>
+<<<<<<< HEAD
         <ColumnNumber>19</ColumnNumber>
         <TopLine>1</TopLine>
         <CurrentLine>40</CurrentLine>
@@ -1900,6 +1919,11 @@
         <ColumnNumber>15</ColumnNumber>
         <TopLine>1</TopLine>
         <CurrentLine>2</CurrentLine>
+=======
+        <ColumnNumber>22</ColumnNumber>
+        <TopLine>1</TopLine>
+        <CurrentLine>11</CurrentLine>
+>>>>>>> 2e62c8a091133815c988048f2f5bf0f4c07255f0
         <Folding>1</Folding>
         <ContractedFolders></ContractedFolders>
         <PaneID>0</PaneID>
