@@ -30,6 +30,7 @@ int main(void)
 	Usart_SendString( DEBUG_USARTx, "欢迎王茗轩光临我的STM32小屋~爱老婆\n");
 	printf("欢迎光临\n");
 	//scanf();
+	
 	putchar('w');
 }
 

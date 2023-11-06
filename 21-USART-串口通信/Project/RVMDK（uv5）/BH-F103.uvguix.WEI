@@ -1870,9 +1870,9 @@
       </Doc>
       <Doc>
         <Name>..\..\User\main.c</Name>
-        <ColumnNumber>12</ColumnNumber>
+        <ColumnNumber>2</ColumnNumber>
         <TopLine>1</TopLine>
-        <CurrentLine>32</CurrentLine>
+        <CurrentLine>33</CurrentLine>
         <Folding>1</Folding>
         <ContractedFolders>0</ContractedFolders>
         <PaneID>0</PaneID>
