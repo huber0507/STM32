@@ -25,6 +25,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f10x_it.h"
+#include "bsp_usart.h"
 
 /** @addtogroup STM32F10x_StdPeriph_Template
   * @{
@@ -137,6 +138,21 @@ void PendSV_Handler(void)
 void SysTick_Handler(void)
 {
 }
+
+/*中断服务函数*/
+
+void DEBUG_USART_IRQHandler(void)
+{
+	uint8_t ucTemp=0;
+	if(USART_GetFlagStatus(DEBUG_USARTx,USART_IT_RXNE)!=RESET)
+	{
+		ucTemp=USART_ReceiveData(DEBUG_USARTx);
+		USART_SendData(DEBUG_USARTx,ucTemp);
+	}
+}
+
+
+
 
 /******************************************************************************/
 /*                 STM32F10x Peripherals Interrupt Handlers                   */
