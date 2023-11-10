@@ -31,7 +31,8 @@
 //#define I2C_PageSize           16	
 
 /*等待超时时间*/
-#define I2CT_FLAG_TIMEOUT         ((uint32_t)0x1000)
+#define I2CT_FLAG_TIMEOUT         ((uint32_t)0x1000)    /*定义超时时间，这个地方有点不明白， uint32_t这是强制地址转换，
+																											那后面携带的是16位数据，这个16位数据应该是多少，这个时间又是多少？ */
 #define I2CT_LONG_TIMEOUT         ((uint32_t)(10 * I2CT_FLAG_TIMEOUT))
 
 

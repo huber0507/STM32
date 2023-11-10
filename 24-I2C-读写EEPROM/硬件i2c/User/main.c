@@ -38,7 +38,7 @@ int main(void)
   LED_GPIO_Config();
   
   LED_YELLOW;
-	 SysTick_Delay_Ms(1000);
+	 SysTick_Delay_Ms(10000000);
   /* ´®¿Ú³õÊ¼»¯ */
 	USART_Config();
 	
