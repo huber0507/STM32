@@ -26,7 +26,7 @@
 *	返 回 值: 1 表示正常， 0 表示不正常
 *********************************************************************************************************
 */
-uint8_t ee_CheckOk(void)
+uint8_t ee_CheckOk(void)   
 {
 	if (i2c_CheckDevice(EEPROM_DEV_ADDR) == 0)
 	{
@@ -45,8 +45,8 @@ uint8_t ee_CheckOk(void)
 *	函 数 名: ee_ReadBytes
 *	功能说明: 从串行EEPROM指定地址处开始读取若干数据
 *	形    参：_usAddress : 起始地址
-*			 _usSize : 数据长度，单位为字节
-*			 _pReadBuf : 存放读到的数据的缓冲区指针
+*			 			_usSize : 数据长度，单位为字节
+*						 _pReadBuf : 存放读到的数据的缓冲区指针
 *	返 回 值: 0 表示失败，1表示成功
 *********************************************************************************************************
 */
@@ -65,7 +65,7 @@ uint8_t ee_ReadBytes(uint8_t *_pReadBuf, uint16_t _usAddress, uint16_t _usSize)
 	/* 第3步：等待ACK */
 	if (i2c_WaitAck() != 0)
 	{
-		goto cmd_fail;	/* EEPROM器件无应答 */
+		goto cmd_fail;	/* EEPROM器件无应答 */    //2023年11月14日10:32:11 这里没有明白为什么这个cmd_fail是什么意思  网上查询是指goto跳转到i2c_stop停止，2023年11月14日11:20:15  看111行代码明白了
 	}
 
 	/* 第4步：发送字节地址，24C02只有256字节，因此1个字节就够了，如果是24C04以上，那么此处需要连发多个地址 */
@@ -81,8 +81,8 @@ uint8_t ee_ReadBytes(uint8_t *_pReadBuf, uint16_t _usAddress, uint16_t _usSize)
 	i2c_Start();
 	
 	/* 第7步：发起控制字节，高7bit是地址，bit0是读写控制位，0表示写，1表示读 */
-	i2c_SendByte(EEPROM_DEV_ADDR | EEPROM_I2C_RD);	/* 此处是读指令 */
-	
+	i2c_SendByte(EEPROM_DEV_ADDR | EEPROM_I2C_RD);	/* 此处是读指令 */         /*实际就是0xA0|1= 10100000|00000001=10100001=0xa1,这里是0xa0是地址，1是读位号*/
+  
 	/* 第8步：发送ACK */
 	if (i2c_WaitAck() != 0)
 	{
@@ -119,8 +119,8 @@ cmd_fail: /* 命令执行失败后，切记发送停止信号，避免影响I2C总线上其他设备 */
 *	函 数 名: ee_WriteBytes
 *	功能说明: 向串行EEPROM指定地址写入若干数据，采用页写操作提高写入效率
 *	形    参：_usAddress : 起始地址
-*			 _usSize : 数据长度，单位为字节
-*			 _pWriteBuf : 存放读到的数据的缓冲区指针
+*					 _usSize : 数据长度，单位为字节
+*					 _pWriteBuf : 存放读到的数据的缓冲区指针
 *	返 回 值: 0 表示失败，1表示成功
 *********************************************************************************************************
 */
@@ -140,7 +140,7 @@ uint8_t ee_WriteBytes(uint8_t *_pWriteBuf, uint16_t _usAddress, uint16_t _usSize
 	for (i = 0; i < _usSize; i++)
 	{
 		/* 当发送第1个字节或是页面首地址时，需要重新发起启动信号和地址 */
-		if ((i == 0) || (usAddr & (EEPROM_PAGE_SIZE - 1)) == 0)
+		if ((i == 0) || (usAddr & (EEPROM_PAGE_SIZE - 1)) == 0)     //这里是没有明白的地方
 		{
 			/*　第０步：发停止信号，启动内部写操作　*/
 			i2c_Stop();
@@ -151,7 +151,7 @@ uint8_t ee_WriteBytes(uint8_t *_pWriteBuf, uint16_t _usAddress, uint16_t _usSize
 			for (m = 0; m < 1000; m++)
 			{				
 				/* 第1步：发起I2C总线启动信号 */
-				i2c_Start();
+				i2c_Start(); 
 				
 				/* 第2步：发起控制字节，高7bit是地址，bit0是读写控制位，0表示写，1表示读 */
 				i2c_SendByte(EEPROM_DEV_ADDR | EEPROM_I2C_WR);	/* 此处是写指令 */
@@ -200,13 +200,13 @@ cmd_fail: /* 命令执行失败后，切记发送停止信号，避免影响I2C总线上其他设备 */
 }
 
 
-void ee_Erase(void)
+void ee_Erase(void)    //擦除函数
 {
 	uint16_t i;
 	uint8_t buf[EEPROM_SIZE];
 	
 	/* 填充缓冲区 */
-	for (i = 0; i < EEPROM_SIZE; i++)
+	for (i = 0; i < EEPROM_SIZE; i++)  //就是把每一个字节区域填充0xFF，类似于格式化
 	{
 		buf[i] = 0xFF;
 	}
@@ -266,7 +266,7 @@ uint8_t ee_Test(void)
 		printf("写eeprom成功！\r\n");
 	}
   
-  /*写完之后需要适当的延时再去读，不然会出错*/
+  /*写完之后需要适当的延时再去读，不然会出错*/   //这里提一下为什么需要这个延时，是因为这里EEPROM的写入是需要时间的，它写入是没有那么快的，所以需要延时
   ee_Delay(0x0FFFFF);
 /*-----------------------------------------------------------------------------------*/
   if (ee_ReadBytes(read_buf, 0, EEPROM_SIZE) == 0)

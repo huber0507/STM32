@@ -5,8 +5,8 @@
 #include <inttypes.h>
 
 
-#define EEPROM_I2C_WR	0		/* 写控制bit */
-#define EEPROM_I2C_RD	1		/* 读控制bit */
+#define EEPROM_I2C_WR	0		/* 写控制bit */     /*零死角玩转STM32.PDF 文中图24-2主机写数据到从机中有提到这个写数据为0，读数据为1*/
+#define EEPROM_I2C_RD	1		/* 读控制bit */			 /*2023年11月14日09:40:57  新疆哈密市285baselocation 一开始我这里没有明白为什么会是0和1，为什么不能是11或者10*/
 
 
 /* 定义I2C总线连接的GPIO端口, 用户只需要修改下面4行代码即可任意改变SCL和SDA的引脚 */
@@ -33,9 +33,8 @@
 	#define EEPROM_I2C_SDA_1()  EEPROM_GPIO_PORT_I2C->BSRR = EEPROM_I2C_SDA_PIN				/* SDA = 1 */
 	#define EEPROM_I2C_SDA_0()  EEPROM_GPIO_PORT_I2C->BRR = EEPROM_I2C_SDA_PIN				/* SDA = 0 */
 	
-	#define EEPROM_I2C_SDA_READ()  ((EEPROM_GPIO_PORT_I2C->IDR & EEPROM_I2C_SDA_PIN) != 0)	/* 读SDA口线状态 */
+	#define EEPROM_I2C_SDA_READ()  ((EEPROM_GPIO_PORT_I2C->IDR & EEPROM_I2C_SDA_PIN) != 0)	/* 读SDA口线状态 */    /*IDR是GPIO的输入寄存器，读取SDA引脚输入寄存器的值即可知道SDA口的状态*/
 #endif
-
 
 void i2c_Start(void);
 void i2c_Stop(void);

@@ -79,7 +79,7 @@ void i2c_Start(void)
 */
 void i2c_Stop(void)
 {
-	/* 当SCL高电平时，SDA出现一个上跳沿表示I2C总线停止信号 */
+	/* 当SCL高电平时，SDA出现一个上跳沿表示I2C总线停止信号 */   /*零死角玩转STM32.PDF   文中图24-5起始和停止信号有说明*/
 	EEPROM_I2C_SDA_0();
 	EEPROM_I2C_SCL_1();
 	i2c_Delay();
@@ -176,7 +176,7 @@ uint8_t i2c_WaitAck(void)
 	{
 		re = 0;
 	}
-	EEPROM_I2C_SCL_0();
+	EEPROM_I2C_SCL_0();    			//此时拉低SCL是为了数据有效性，见零死角图24-6，当SCL低电平，数据无效，SCL高电平，数据有效
 	i2c_Delay();
 	return re;
 }
