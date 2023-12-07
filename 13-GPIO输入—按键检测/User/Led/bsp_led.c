@@ -28,7 +28,7 @@ void LED_GPIO_Config(void)
 		GPIO_InitTypeDef GPIO_InitStructure;
 
 		/*开启LED相关的GPIO外设时钟*/
-		RCC_APB2PeriphClockCmd( LED1_GPIO_CLK | LED2_GPIO_CLK | LED3_GPIO_CLK, ENABLE);
+		RCC_APB2PeriphClockCmd( LED1_GPIO_CLK | LED2_GPIO_CLK | LED3_GPIO_CLK, ENABLE);   //以这样的方式可以打开所有需要开的时钟
 		/*选择要控制的GPIO引脚*/
 		GPIO_InitStructure.GPIO_Pin = LED1_GPIO_PIN;	
 
@@ -51,7 +51,7 @@ void LED_GPIO_Config(void)
 		GPIO_InitStructure.GPIO_Pin = LED3_GPIO_PIN;
 
 		/*调用库函数，初始化GPIOF*/
-		GPIO_Init(LED3_GPIO_PORT, &GPIO_InitStructure);
+		GPIO_Init(LED3_GPIO_PORT, &GPIO_InitStructure);  //初始化之后必须要关灯，否则无法判断初始化是否成功
 
 		/* 关闭所有led灯	*/
 		GPIO_SetBits(LED1_GPIO_PORT, LED1_GPIO_PIN);
@@ -65,7 +65,7 @@ void LED_GPIO_Config(void)
 
 void assert_failed(uint8_t* file, uint32_t line)
 {
-	// 断言错误时执行的代码
+	// 错误时执行的代码
 	LED1_ON;
 }
 /*********************************************END OF FILE**********************/

@@ -35,10 +35,11 @@ int main(void)
 	uint8_t status=0;
 	/* LED 端口初始化 */
 	LED_GPIO_Config();	
-	
+	//传输前亮黄灯
 	LED_YELLOW;	
+	//延时
 	Delay(0x0FFFFFF);
-	
+	//初始化MDA
 	MtM_DMA_Config();
 	
 	/* 等待DMA传输完成 */

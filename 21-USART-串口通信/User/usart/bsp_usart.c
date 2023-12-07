@@ -112,10 +112,10 @@ void Usart_SendArray(USART_TypeDef * pUSARTx,uint8_t *array,uint8_t num)
 	uint8_t i;
 	for(i=0;i<num;i++)
 	{
-		Usart_SendByte(pUSARTx,array[i]);
+		Usart_SendByte(pUSARTx,array[i]);																						//for循环发送多次
 		
 	}
-	while(USART_GetFlagStatus(pUSARTx, USART_FLAG_TC)==RESET);
+	while(USART_GetFlagStatus(pUSARTx, USART_FLAG_TC)==RESET);										//标志位确认是否发送完毕	
 }
 
 /*串口发送字符串*/
@@ -124,7 +124,7 @@ void Usart_SendString( USART_TypeDef * pUSARTx, char *str)
 	unsigned int k=0;
   do 
   {
-      Usart_SendByte( pUSARTx, *(str + k) );
+      Usart_SendByte( pUSARTx, *(str + k) );							//这个地方是有点不明白的，取指针之后就可以算到结束符
       k++;
   } while(*(str + k)!='\0');
   

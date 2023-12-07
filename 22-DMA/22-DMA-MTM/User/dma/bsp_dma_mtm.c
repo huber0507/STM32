@@ -71,21 +71,21 @@ void MtM_DMA_Config(void)
 	DMA_InitTypeDef DMA_InitStruct;       				  													//定义DMA  MTM结构体
 	RCC_AHBPeriphClockCmd(MTM_DMA_CLK,ENABLE);     														//打开DMA时钟   
 	
-	DMA_InitStruct.DMA_PeripheralBaseAddr= (uint32_t)aSRC_Const_Buffer;       //指定好外设基地址
-	DMA_InitStruct.DMA_MemoryBaseAddr=(uint32_t)aDST_Buffer;									//内存基地址
-	DMA_InitStruct.DMA_DIR=DMA_DIR_PeripheralSRC;															//目标基地址
+	DMA_InitStruct.DMA_PeripheralBaseAddr= (uint32_t)aSRC_Const_Buffer;       //设置DMA源地址：串口数据寄存器地址*/
+	DMA_InitStruct.DMA_MemoryBaseAddr=(uint32_t)aDST_Buffer;									//内存地址(要传输的变量的指针)
+	DMA_InitStruct.DMA_DIR=DMA_DIR_PeripheralSRC;															//传输方向：从内存到内存
 	
-	DMA_InitStruct.DMA_BufferSize=BUFFER_SIZE;												//发送数据大小
+	DMA_InitStruct.DMA_BufferSize=BUFFER_SIZE;												//传输数据大小
 	
-	DMA_InitStruct.DMA_PeripheralInc=DMA_PeripheralInc_Enable;				//DMA外设使能
+	DMA_InitStruct.DMA_PeripheralInc=DMA_PeripheralInc_Enable;				//DMA外设增量使能   外设地址递增这个是没有明白的地方
 	
-	DMA_InitStruct.DMA_MemoryInc=DMA_PeripheralDataSize_Word;					//DMA外设数据字节
+	DMA_InitStruct.DMA_MemoryInc=DMA_PeripheralDataSize_Word;					//DMA外设数据字节    内存地址自增这里也没有明白
 	
-	DMA_InitStruct.DMA_PeripheralDataSize=DMA_MemoryInc_Enable;				//DMA1  内存使能
+	DMA_InitStruct.DMA_PeripheralDataSize=DMA_MemoryInc_Enable;				//DMA外设数据单位    不明白
 	
-	DMA_InitStruct.DMA_MemoryDataSize=DMA_MemoryDataSize_Word;				//DMA 内存数据大小
+	DMA_InitStruct.DMA_MemoryDataSize=DMA_MemoryDataSize_Word;				//DMA内存数据单位			不明白
 	
-	DMA_InitStruct.DMA_Mode=DMA_Mode_Normal;													//DMA模式， 普通、循环、
+	DMA_InitStruct.DMA_Mode=DMA_Mode_Normal;													//DMA模式， 普通，发送一次  循环，循环发送
 	
 	DMA_InitStruct.DMA_Priority=DMA_Priority_High ;										//优先级  高
 	

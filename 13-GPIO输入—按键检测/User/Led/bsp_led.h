@@ -49,7 +49,9 @@
 /* 直接操作寄存器的方法控制IO */
 #define	digitalHi(p,i)		 {p->BSRR=i;}	 //输出为高电平		
 #define digitalLo(p,i)		 {p->BRR=i;}	 //输出低电平
-#define digitalToggle(p,i) {p->ODR ^=i;} //输出反转状态
+#define digitalToggle(p,i) {p->ODR ^=i;} //输出反转状态   ->是一个整体，它是用于指向结构体、C++中的class等含有子数据的指针用来取子数据。
+																													//换种说法，如果我们在C语言中定义了一个结构体，然后申明一个指针指向这个结构体，
+																													//	那么我们要用指针取出结构体中的数据，就要用到“->”.
 
 
 /* 定义控制IO的宏 */

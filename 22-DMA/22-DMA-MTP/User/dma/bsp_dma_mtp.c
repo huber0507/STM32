@@ -30,6 +30,7 @@ void USART_Config(void)
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
 	GPIO_Init(DEBUG_USART_RX_GPIO_PORT, &GPIO_InitStructure);
 	
+
 	// 配置串口的工作参数
 	// 配置波特率
 	USART_InitStructure.USART_BaudRate = DEBUG_USART_BAUDRATE;
@@ -88,7 +89,7 @@ void USARTx_DMA_Config(void)
 		DMA_InitStructure.DMA_MemoryDataSize = DMA_MemoryDataSize_Byte;	 
 		// DMA模式，一次或者循环模式
 		DMA_InitStructure.DMA_Mode = DMA_Mode_Circular ;
-		//DMA_InitStructure.DMA_Mode = DMA_Mode_Circular;	
+		//DMA_InitStructure.DMA_Mode = DMA_Mode_Circular;    //这个模式有循环与一次模式，分别是发一次和循环发送	
 		// 优先级：中	
 		DMA_InitStructure.DMA_Priority = DMA_Priority_Medium; 
 		// 禁止内存到内存的传输

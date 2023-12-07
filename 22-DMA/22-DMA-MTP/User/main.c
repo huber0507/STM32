@@ -41,7 +41,7 @@ int main(void)
 	
 	for(i=0;i<SENDBUFF_SIZE;i++)
 	{
-		SendBuff[i]='WMX';
+		SendBuff[i]='X';
 	}
 	
 	USARTx_DMA_Config();
