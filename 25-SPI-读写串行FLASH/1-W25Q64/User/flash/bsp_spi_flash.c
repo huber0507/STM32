@@ -18,7 +18,7 @@
 #include "./flash/bsp_spi_flash.h"
 
 static __IO uint32_t  SPITimeout = SPIT_LONG_TIMEOUT;    
-static uint16_t SPI_TIMEOUT_UserCallback(uint8_t errorCode);
+static uint16_t SPI_TIMEOUT_UserCallback(uint8_t errorCode);  //static ：最主要功能是隐藏，其次因为 static 变量存放在静态存储区，所以它具备持久性和默认值0。
 
 /**
   * @brief  SPI_FLASH初始化

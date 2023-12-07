@@ -28,14 +28,14 @@ int main(void)
 	uint8_t a=0;
 	USART_Config();
 	LED_GPIO_Config();
-//	Usart_SendByte(DEBUG_USARTx,'x'); //显示单个字符 
-//	Usart_SendHalfword(DEBUG_USARTx,0xff56);
-//	Usart_SendArray(DEBUG_USARTx,a,10);
-	Usart_SendString( DEBUG_USARTx, "欢迎王茗轩光临我的STM32小屋~爱老婆\n");
+//	Usart_SendByte(DEBUG_USARTx,'W'); //显示单个字符    一个字符等于一个字节，一个字节是8位
+	Usart_SendHalfword(DEBUG_USARTx,0xff56);
+	//Usart_SendArray(DEBUG_USARTx,a,10);
+//	Usart_SendString( DEBUG_USARTx, "欢迎王茗轩光临我的STM32小屋~爱老婆\n");
 //	printf("欢迎光临\n");
 	//scanf();
 	
-//	putchar('w');
+	putchar('w');
 	while(1)
 	{
 		a=getchar();

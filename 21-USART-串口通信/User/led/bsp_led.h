@@ -9,17 +9,18 @@
 // R-红色
 #define LED1_GPIO_PORT    	GPIOB			              /* GPIO端口 */
 #define LED1_GPIO_CLK 	    RCC_APB2Periph_GPIOB		/* GPIO端口时钟 */
-#define LED1_GPIO_PIN		GPIO_Pin_5			        /* 连接到SCL时钟线的GPIO */
+#define LED1_GPIO_PIN				GPIO_Pin_5			        /* 连接到SCL时钟线的GPIO */   /*使用GPIO端口，必须要先指定端口，
+																																									然后打开时钟，再打开连接到GPIO的时钟线*/
 
 // G-绿色
 #define LED2_GPIO_PORT    	GPIOB			              /* GPIO端口 */
 #define LED2_GPIO_CLK 	    RCC_APB2Periph_GPIOB		/* GPIO端口时钟 */
-#define LED2_GPIO_PIN		GPIO_Pin_0			        /* 连接到SCL时钟线的GPIO */
+#define LED2_GPIO_PIN				GPIO_Pin_0			        /* 连接到SCL时钟线的GPIO */
 
 // B-蓝色
 #define LED3_GPIO_PORT    	GPIOB			              /* GPIO端口 */
 #define LED3_GPIO_CLK 	    RCC_APB2Periph_GPIOB		/* GPIO端口时钟 */
-#define LED3_GPIO_PIN		GPIO_Pin_1			        /* 连接到SCL时钟线的GPIO */
+#define LED3_GPIO_PIN				GPIO_Pin_1			        /* 连接到SCL时钟线的GPIO */
 
 
 /** the macro definition to trigger the led on or off 

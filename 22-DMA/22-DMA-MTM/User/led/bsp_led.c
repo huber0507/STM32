@@ -22,7 +22,7 @@
   * @param  无
   * @retval 无
   */
-void LED_GPIO_Config(void)
+void LED_GPIO_Config(void)   //后续GPIO的初始化均是采用这种方式
 {		
 		/*定义一个GPIO_InitTypeDef类型的结构体*/
 		GPIO_InitTypeDef GPIO_InitStructure;
