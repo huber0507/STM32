@@ -61,15 +61,15 @@ void SPI_FLASH_Init(void)
 
   /* SPI 模式配置 */
   // FLASH芯片 支持SPI模式0及模式3，据此设置CPOL CPHA
-  SPI_InitStructure.SPI_Direction = SPI_Direction_2Lines_FullDuplex;
-  SPI_InitStructure.SPI_Mode = SPI_Mode_Master;
-  SPI_InitStructure.SPI_DataSize = SPI_DataSize_8b;
-  SPI_InitStructure.SPI_CPOL = SPI_CPOL_High;
-  SPI_InitStructure.SPI_CPHA = SPI_CPHA_2Edge;
-  SPI_InitStructure.SPI_NSS = SPI_NSS_Soft;
-  SPI_InitStructure.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_4;
-  SPI_InitStructure.SPI_FirstBit = SPI_FirstBit_MSB;
-  SPI_InitStructure.SPI_CRCPolynomial = 7;
+  SPI_InitStructure.SPI_Direction = SPI_Direction_2Lines_FullDuplex;    //设置SPI的单双向模式
+  SPI_InitStructure.SPI_Mode = SPI_Mode_Master;													//主从机模式
+  SPI_InitStructure.SPI_DataSize = SPI_DataSize_8b;											//数据帧长度 8或16
+  SPI_InitStructure.SPI_CPOL = SPI_CPOL_High;														//CPOL时钟极性  高或低
+  SPI_InitStructure.SPI_CPHA = SPI_CPHA_2Edge;													//时钟相位 奇偶边沿采样
+  SPI_InitStructure.SPI_NSS = SPI_NSS_Soft;															//NSS由	硬件or软件 控制
+  SPI_InitStructure.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_4;		//时钟分频因子
+  SPI_InitStructure.SPI_FirstBit = SPI_FirstBit_MSB;										//MSB/LSB先行
+  SPI_InitStructure.SPI_CRCPolynomial = 7;															//CRC校验
   SPI_Init(FLASH_SPIx , &SPI_InitStructure);
 
   /* 使能 SPI  */
@@ -81,7 +81,7 @@ void SPI_FLASH_Init(void)
   * @param  SectorAddr：要擦除的扇区地址
   * @retval 无
   */
-void SPI_FLASH_SectorErase(u32 SectorAddr)
+void SPI_FLASH_SectorErase(u32 SectorAddr)    //擦除函数
 {
   /* 发送FLASH写使能命令 */
   SPI_FLASH_WriteEnable();
@@ -142,7 +142,7 @@ void SPI_FLASH_PageWrite(u8* pBuffer, u32 WriteAddr, u16 NumByteToWrite)
   /* 写页写指令*/
   SPI_FLASH_SendByte(W25X_PageProgram);
   /*发送写地址的高位*/
-  SPI_FLASH_SendByte((WriteAddr & 0xFF0000) >> 16);
+  SPI_FLASH_SendByte((WriteAddr & 0xFF0000) >> 16);   //2023年12月11日15:43:41 这个写地址的高中低位没有理解
   /*发送写地址的中位*/
   SPI_FLASH_SendByte((WriteAddr & 0xFF00) >> 8);
   /*发送写地址的低位*/

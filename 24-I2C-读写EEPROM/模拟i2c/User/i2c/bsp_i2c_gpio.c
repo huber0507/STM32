@@ -80,10 +80,10 @@ void i2c_Start(void)
 void i2c_Stop(void)
 {
 	/* 当SCL高电平时，SDA出现一个上跳沿表示I2C总线停止信号 */   /*零死角玩转STM32.PDF   文中图24-5起始和停止信号有说明*/
-	EEPROM_I2C_SDA_0();
-	EEPROM_I2C_SCL_1();
-	i2c_Delay();
-	EEPROM_I2C_SDA_1();
+	EEPROM_I2C_SDA_0();  //SDA=0
+	EEPROM_I2C_SCL_1(); //SCL=1
+	i2c_Delay();				//延时
+	EEPROM_I2C_SDA_1();	//SDA=1
 }
 
 /*
@@ -101,24 +101,26 @@ void i2c_SendByte(uint8_t _ucByte)
 	/* 先发送字节的高位bit7 */
 	for (i = 0; i < 8; i++)
 	{		
-		if (_ucByte & 0x80)
+		if (_ucByte & 0x80)   //2023年12月11日09:54:31 这里跟0x80与是什么意思？  
+													//计算机存储的形式是小端存储，也就是高位在后，低位在前。
+													//0x80=10000000   那么高7位就是1000000，也就是后面的7位
 		{
-			EEPROM_I2C_SDA_1();
+			EEPROM_I2C_SDA_1();   //SDA=1
 		}
 		else
 		{
-			EEPROM_I2C_SDA_0();
+			EEPROM_I2C_SDA_0();   //SDA=0
 		}
-		i2c_Delay();
-		EEPROM_I2C_SCL_1();
-		i2c_Delay();	
-		EEPROM_I2C_SCL_0();
+		i2c_Delay();					//延时
+		EEPROM_I2C_SCL_1();   //拉高SCL
+		i2c_Delay();					//延时
+		EEPROM_I2C_SCL_0();		//拉低SCL
 		if (i == 7)
 		{
-			 EEPROM_I2C_SDA_1(); // 释放总线
+			 EEPROM_I2C_SDA_1(); //释放总线
 		}
 		_ucByte <<= 1;	/* 左移一个bit */
-		i2c_Delay();
+		i2c_Delay(); 					//延时
 	}
 }
 

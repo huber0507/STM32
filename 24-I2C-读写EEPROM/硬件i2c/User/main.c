@@ -67,7 +67,7 @@ int main(void)
   * @param  无
   * @retval 正常返回1，异常返回0
   */
-uint8_t I2C_Test(void)
+uint8_t I2C_Test(void)     //测试程序，将数据写入之后又读出来
 {
 	uint16_t i;
 

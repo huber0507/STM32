@@ -45,17 +45,17 @@ int main(void)
 	/* 等待DMA传输完成 */
   while(DMA_GetFlagStatus(MTM_DMA_FLAG_TC)==RESET);
 
-	status= Buffercmp(aSRC_Const_Buffer,aDST_Buffer,BUFFER_SIZE);
+	status= Buffercmp(aSRC_Const_Buffer,aDST_Buffer,BUFFER_SIZE);  //判断数据是否完整，对比一下是否传输完成，传输完成返回1，否则返回0
 	if(status==1)
 	{
-		LED_RED;
+		LED_RED;   //传输完成红灯
 	}
 	else
 	{
-		LED_GREEN;
+		LED_GREEN;   //传输不完成绿灯
 	}
 	
-	MtM_DMA_Config();	
+	MtM_DMA_Config();	   //这里再次初始化是为什么？  是为了下次传输所以就提前初始化了？
 
 	while (1)
 	{

@@ -140,18 +140,18 @@ void I2C_EE_Init(void)		//I2C 外设(EEPROM)初始化
   *     @arg NumByteToWrite:写的字节数
   * @retval  无
   */
-void I2C_EE_BufferWrite(u8* pBuffer, u8 WriteAddr, u16 NumByteToWrite) /*u8 u16 u32这个是在stm32f10x.h文件中进行定义了，
+void I2C_EE_BufferWrite(u8* pBuffer, u8 WriteAddr, u16 NumByteToWrite) /*u8 u16 u32这个是在stm32f10x.h文件中进行定义了，     这个函数没明白是怎么回事，回头我再看看
 																																				实际就是uint8_t、uint16_t、uint32_t  */
 {
   u8 NumOfPage = 0, NumOfSingle = 0, Addr = 0, count = 0;
 
-  Addr = WriteAddr % I2C_PageSize;
+  Addr = WriteAddr % I2C_PageSize;    //写地址和页地址这个为什么要这样运算？
   count = I2C_PageSize - Addr;
   NumOfPage =  NumByteToWrite / I2C_PageSize;
   NumOfSingle = NumByteToWrite % I2C_PageSize;
  
   /* If WriteAddr is I2C_PageSize aligned  */
-  if(Addr == 0) 
+  if(Addr == 0)    //
   {
     /* If NumByteToWrite < I2C_PageSize */
     if(NumOfPage == 0) 
@@ -235,7 +235,7 @@ uint32_t I2C_EE_ByteWrite(u8* pBuffer, u8 WriteAddr)  														/*u8 u16 u32
   /* Test on EV5 and clear it */																	
   while(!I2C_CheckEvent(EEPROM_I2Cx, I2C_EVENT_MASTER_MODE_SELECT))  									//检测EV5事件，其中两个参数，一个是I2C1，一个是检测EV5
   {
-    if((I2CTimeout--) == 0) return I2C_TIMEOUT_UserCallback(0);												//如果超时，就返回I2C等待超时信息
+    if((I2CTimeout--) == 0) return I2C_TIMEOUT_UserCallback(0);												//如果超时，就返回I2C等待超时信息0
   } 
   
   I2CTimeout = I2CT_FLAG_TIMEOUT;																											//等待超时
@@ -252,7 +252,7 @@ uint32_t I2C_EE_ByteWrite(u8* pBuffer, u8 WriteAddr)  														/*u8 u16 u32
   
   I2CTimeout = I2CT_FLAG_TIMEOUT;																											//等待超时
   /* Test on EV8 and clear it */
-  while(!I2C_CheckEvent(EEPROM_I2Cx, I2C_EVENT_MASTER_BYTE_TRANSMITTED))       				//检测EV8_2事件
+  while(!I2C_CheckEvent(EEPROM_I2Cx, I2C_EVENT_MASTER_BYTE_TRANSMITTED))       				//检测EV8_2事件    这里有点跟手册里的主发送通讯过程有点省略的地方，烧录EV8事件
   {
     if((I2CTimeout--) == 0) return I2C_TIMEOUT_UserCallback(2);												//如果超时，就返回I2C等待超时信息2
   } 
@@ -322,7 +322,7 @@ uint32_t I2C_EE_PageWrite(u8* pBuffer, u8 WriteAddr, u8 NumByteToWrite)									
     if((I2CTimeout--) == 0) return I2C_TIMEOUT_UserCallback(7);	//超时之后返回超时信息7
   } 
 
-  /* While there is data to be written */
+  /* While there is data to be written */       //这个也有一点区别就是这个EV8-1事件是没有的，省略的
   while(NumByteToWrite--)  
   {
     /* Send the current byte */
@@ -466,22 +466,22 @@ uint32_t I2C_EE_BufferRead(u8* pBuffer, u8 ReadAddr, u16 NumByteToRead)
   */
 void I2C_EE_WaitEepromStandbyState(void)      
 {
-  vu16 SR1_Tmp = 0;
+  vu16 SR1_Tmp = 0;        //vu16   volatile的作用是作为指令关键字，确保本条指令不会因编译器的优化而省略，且要求每次直接读值
 
   do
   {
     /* Send START condition */
-    I2C_GenerateSTART(EEPROM_I2Cx, ENABLE);
+    I2C_GenerateSTART(EEPROM_I2Cx, ENABLE);      //发送开启状态
     /* Read I2C1 SR1 register */
-    SR1_Tmp = I2C_ReadRegister(EEPROM_I2Cx, I2C_Register_SR1);
+    SR1_Tmp = I2C_ReadRegister(EEPROM_I2Cx, I2C_Register_SR1);   //读SR1寄存器
     /* Send EEPROM address for write */
-    I2C_Send7bitAddress(EEPROM_I2Cx, EEPROM_ADDRESS, I2C_Direction_Transmitter);
-  }while(!(I2C_ReadRegister(EEPROM_I2Cx, I2C_Register_SR1) & 0x0002));
+    I2C_Send7bitAddress(EEPROM_I2Cx, EEPROM_ADDRESS, I2C_Direction_Transmitter);   //发送7位地址
+  }while(!(I2C_ReadRegister(EEPROM_I2Cx, I2C_Register_SR1) & 0x0002));    //这里没明白为什么要与0x0002
   
   /* Clear AF flag */
-  I2C_ClearFlag(EEPROM_I2Cx, I2C_FLAG_AF);
+  I2C_ClearFlag(EEPROM_I2Cx, I2C_FLAG_AF);   //清除AF标志位
     /* STOP condition */    
-    I2C_GenerateSTOP(EEPROM_I2Cx, ENABLE); 
+    I2C_GenerateSTOP(EEPROM_I2Cx, ENABLE);     //停止位
 }
 
 
@@ -492,7 +492,7 @@ void I2C_EE_WaitEepromStandbyState(void)
   * @param  errorCode：错误代码，可以用来定位是哪个环节出错.
   * @retval 返回0，表示IIC读取失败.
   */
-static  uint32_t I2C_TIMEOUT_UserCallback(uint8_t errorCode)
+static  uint32_t I2C_TIMEOUT_UserCallback(uint8_t errorCode)     //超时代码函数，可以采用这种方式放置在容易出现错误的地方
 {
   /* Block communication and all processes */
   EEPROM_ERROR("I2C 等待超时!errorCode = %d",errorCode);   
