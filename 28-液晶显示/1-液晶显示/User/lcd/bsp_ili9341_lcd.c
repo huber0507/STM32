@@ -229,7 +229,7 @@ static void ILI9341_FSMC_Config ( void )
 	RCC_AHBPeriphClockCmd ( RCC_AHBPeriph_FSMC, ENABLE );
 
 	//地址建立时间（ADDSET）为1个HCLK 2/72M=28ns
-	readWriteTiming.FSMC_AddressSetupTime      = 0x01;	 //地址建立时间
+	readWriteTiming.FSMC_AddressSetupTime      = 0x01;	 //地址建立时间   2023年12月12日17:13:41 这个地址建立时间是不太理解的地方
 	//数据保持时间（DATAST）+ 1个HCLK = 5/72M=70ns	
 	readWriteTiming.FSMC_DataSetupTime         = 0x04;	 //数据建立时间
 	//选择控制的模式
@@ -250,7 +250,7 @@ static void ILI9341_FSMC_Config ( void )
 	FSMC_NORSRAMInitStructure.FSMC_Bank                  = FSMC_Bank1_NORSRAMx;
 	FSMC_NORSRAMInitStructure.FSMC_DataAddressMux        = FSMC_DataAddressMux_Disable;
 	FSMC_NORSRAMInitStructure.FSMC_MemoryType            = FSMC_MemoryType_NOR;
-	FSMC_NORSRAMInitStructure.FSMC_MemoryDataWidth       = FSMC_MemoryDataWidth_16b;
+	FSMC_NORSRAMInitStructure.FSMC_MemoryDataWidth       = FSMC_MemoryDataWidth_16b;    //16位
 	FSMC_NORSRAMInitStructure.FSMC_BurstAccessMode       = FSMC_BurstAccessMode_Disable;
 	FSMC_NORSRAMInitStructure.FSMC_WaitSignalPolarity    = FSMC_WaitSignalPolarity_Low;
 	FSMC_NORSRAMInitStructure.FSMC_WrapMode              = FSMC_WrapMode_Disable;
