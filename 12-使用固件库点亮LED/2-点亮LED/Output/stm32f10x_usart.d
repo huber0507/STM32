@@ -2,7 +2,11 @@
 ..\..\output\stm32f10x_usart.o: ..\..\Libraries\FWlib\inc\stm32f10x_usart.h
 ..\..\output\stm32f10x_usart.o: ..\..\Libraries\CMSIS\stm32f10x.h
 ..\..\output\stm32f10x_usart.o: ..\..\Libraries\CMSIS\core_cm3.h
+<<<<<<< HEAD
 ..\..\output\stm32f10x_usart.o: D:\Altlog\SoftWare\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+=======
+..\..\output\stm32f10x_usart.o: D:\Software\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+>>>>>>> b9b49c6a3809620a8135636d9c0ccfdd4cf08834
 ..\..\output\stm32f10x_usart.o: ..\..\Libraries\CMSIS\system_stm32f10x.h
 ..\..\output\stm32f10x_usart.o: ..\..\User\stm32f10x_conf.h
 ..\..\output\stm32f10x_usart.o: ..\..\Libraries\FWlib\inc\stm32f10x_adc.h

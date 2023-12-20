@@ -21,7 +21,10 @@
 #include "./i2c/bsp_i2c_ee.h"
 #include "./key/bsp_key.h"
 #include <stdio.h>
+<<<<<<< HEAD
 #include "systick.h"
+=======
+>>>>>>> b9b49c6a3809620a8135636d9c0ccfdd4cf08834
 
 
  /**
@@ -34,6 +37,7 @@ int main(void)
   
     LED_GPIO_Config();
 		USART_Config();
+<<<<<<< HEAD
   while(1)
 	{
     LED_BLUE;
@@ -52,12 +56,37 @@ int main(void)
 		delay_ms(1000);
 		LED_RGBOFF;
 		delay_ms(1000);
+=======
+		Key_GPIO_Config();
+  while(1)
+	{
+//    LED_BLUE;
+//		delay_ms(1000);
+//		LED_RED;
+//		delay_ms(1000);
+//		LED_GREEN;
+//		delay_ms(1000);
+//		LED_YELLOW;
+//		delay_ms(1000);
+//		LED_PURPLE;
+//		delay_ms(1000);
+//		LED_CYAN;
+//		delay_ms(1000);
+//		LED_WHITE;
+//		delay_ms(1000);
+//		LED_RGBOFF;
+//		delay_ms(1000);
+>>>>>>> b9b49c6a3809620a8135636d9c0ccfdd4cf08834
 		if( Key_Scan(KEY1_GPIO_PORT,KEY1_GPIO_PIN) == KEY_ON  )
 		{
 			LED_GREEN;
 			delay_ms(1000);
 			Usart_SendString( DEBUG_USARTx, "欢迎王茗轩光临我的STM32小屋~\n");
 			LED_RGBOFF;
+<<<<<<< HEAD
+=======
+				
+>>>>>>> b9b49c6a3809620a8135636d9c0ccfdd4cf08834
 		} 
 
 
@@ -68,6 +97,10 @@ int main(void)
 			printf("欢迎光临\n");
 			LED_RGBOFF;
 		}
+<<<<<<< HEAD
 	}
+=======
+}
+>>>>>>> b9b49c6a3809620a8135636d9c0ccfdd4cf08834
 }
 /*********************************************END OF FILE**********************/
