@@ -20,7 +20,7 @@
 #include "./flash/bsp_spi_flash.h"
 
 
-typedef enum { FAILED = 0, PASSED = !FAILED} TestStatus;
+typedef enum { FAILED = 0, PASSED = !FAILED} TestStatus;   //枚举   失败和通过的结果
 
 /* 获取缓冲区的长度 */
 #define TxBufferSize1   (countof(TxBuffer1) - 1)
@@ -56,6 +56,8 @@ int main(void)
 { 	
 	LED_GPIO_Config();
 	LED_BLUE;
+	delay_ms(5000);
+	
 	
 	/* 配置串口为：115200 8-N-1 */
 	USART_Config();

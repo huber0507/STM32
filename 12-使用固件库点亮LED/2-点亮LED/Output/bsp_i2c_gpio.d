@@ -1,7 +1,12 @@
 ..\..\output\bsp_i2c_gpio.o: ..\..\User\i2c\bsp_i2c_gpio.c
 ..\..\output\bsp_i2c_gpio.o: ..\..\User\i2c\bsp_i2c_gpio.h
+<<<<<<< HEAD
 ..\..\output\bsp_i2c_gpio.o: D:\Altlog\SoftWare\Keil_v5\ARM\ARMCC\Bin\..\include\inttypes.h
 ..\..\output\bsp_i2c_gpio.o: D:\Altlog\SoftWare\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+=======
+..\..\output\bsp_i2c_gpio.o: D:\Software\Keil_v5\ARM\ARMCC\Bin\..\include\inttypes.h
+..\..\output\bsp_i2c_gpio.o: D:\Software\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+>>>>>>> b9b49c6a3809620a8135636d9c0ccfdd4cf08834
 ..\..\output\bsp_i2c_gpio.o: ..\..\Libraries\CMSIS\stm32f10x.h
 ..\..\output\bsp_i2c_gpio.o: ..\..\Libraries\CMSIS\core_cm3.h
 ..\..\output\bsp_i2c_gpio.o: ..\..\Libraries\CMSIS\system_stm32f10x.h

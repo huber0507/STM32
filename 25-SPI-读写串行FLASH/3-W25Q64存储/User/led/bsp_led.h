@@ -116,5 +116,8 @@
 					LED3_OFF
 
 void LED_GPIO_Config(void);
+void delay_us(u16 time);
+void delay_ms(u16 time);
+
 
 #endif /* __LED_H */
