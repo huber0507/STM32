@@ -21,7 +21,14 @@
 #include "./i2c/bsp_i2c_ee.h"
 #include "./key/bsp_key.h"
 #include <stdio.h>
+<<<<<<< HEAD:12-使用固件库点亮LED/2-点亮LED/User/mian.c
 
+=======
+<<<<<<< HEAD
+#include "systick.h"
+=======
+>>>>>>> b9b49c6a3809620a8135636d9c0ccfdd4cf08834
+>>>>>>> 46ee1b890d018862eefe9aa33d58987326c7f4b0:12-使用固件库点亮LED/2-点亮LED/User/main.c
 
 
  /**
@@ -34,7 +41,11 @@ int main(void)
   
     LED_GPIO_Config();
 		USART_Config();
+<<<<<<< HEAD:12-使用固件库点亮LED/2-点亮LED/User/mian.c
 
+=======
+<<<<<<< HEAD
+>>>>>>> 46ee1b890d018862eefe9aa33d58987326c7f4b0:12-使用固件库点亮LED/2-点亮LED/User/main.c
   while(1)
 	{
     LED_BLUE;
@@ -53,7 +64,11 @@ int main(void)
 		delay_ms(1000);
 		LED_RGBOFF;
 		delay_ms(1000);
+<<<<<<< HEAD:12-使用固件库点亮LED/2-点亮LED/User/mian.c
 
+=======
+=======
+>>>>>>> 46ee1b890d018862eefe9aa33d58987326c7f4b0:12-使用固件库点亮LED/2-点亮LED/User/main.c
 		Key_GPIO_Config();
   while(1)
 	{
@@ -73,16 +88,27 @@ int main(void)
 //		delay_ms(1000);
 //		LED_RGBOFF;
 //		delay_ms(1000);
+<<<<<<< HEAD:12-使用固件库点亮LED/2-点亮LED/User/mian.c
 
+=======
+>>>>>>> b9b49c6a3809620a8135636d9c0ccfdd4cf08834
+>>>>>>> 46ee1b890d018862eefe9aa33d58987326c7f4b0:12-使用固件库点亮LED/2-点亮LED/User/main.c
 		if( Key_Scan(KEY1_GPIO_PORT,KEY1_GPIO_PIN) == KEY_ON  )
 		{
 			LED_GREEN;
 			delay_ms(1000);
 			Usart_SendString( DEBUG_USARTx, "欢迎王茗轩光临我的STM32小屋~\n");
 			LED_RGBOFF;
+<<<<<<< HEAD:12-使用固件库点亮LED/2-点亮LED/User/mian.c
 
 				
 
+=======
+<<<<<<< HEAD
+=======
+				
+>>>>>>> b9b49c6a3809620a8135636d9c0ccfdd4cf08834
+>>>>>>> 46ee1b890d018862eefe9aa33d58987326c7f4b0:12-使用固件库点亮LED/2-点亮LED/User/main.c
 		} 
 
 
@@ -93,11 +119,19 @@ int main(void)
 			printf("欢迎光临\n");
 			LED_RGBOFF;
 		}
+<<<<<<< HEAD:12-使用固件库点亮LED/2-点亮LED/User/mian.c
 
 	}
 
 }
 
+=======
+<<<<<<< HEAD
+	}
+=======
+}
+>>>>>>> b9b49c6a3809620a8135636d9c0ccfdd4cf08834
+>>>>>>> 46ee1b890d018862eefe9aa33d58987326c7f4b0:12-使用固件库点亮LED/2-点亮LED/User/main.c
 }
 /*********************************************END OF FILE**********************/
 

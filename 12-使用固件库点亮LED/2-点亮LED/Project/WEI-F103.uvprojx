@@ -10,13 +10,29 @@
       <TargetName>Target 1</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
+<<<<<<< HEAD:12-使用固件库点亮LED/2-点亮LED/Project/WEI-F103.uvprojx
       <pCCUsed>5060750::V5.06 update 6 (build 750)::ARMCC</pCCUsed>
+=======
+<<<<<<< HEAD
+      <pCCUsed>5060750::V5.06 update 6 (build 750)::ARMCC</pCCUsed>
+=======
+      <pCCUsed>5060960::V5.06 update 7 (build 960)::.\ARMCC</pCCUsed>
+>>>>>>> b9b49c6a3809620a8135636d9c0ccfdd4cf08834
+>>>>>>> 46ee1b890d018862eefe9aa33d58987326c7f4b0:12-使用固件库点亮LED/2-点亮LED/Project/RVMDK（uv5）/BH-F103.uvprojx
       <uAC6>0</uAC6>
       <TargetOption>
         <TargetCommonOption>
           <Device>STM32F103ZE</Device>
           <Vendor>STMicroelectronics</Vendor>
+<<<<<<< HEAD:12-使用固件库点亮LED/2-点亮LED/Project/WEI-F103.uvprojx
           <PackID>Keil.STM32F1xx_DFP.2.1.0</PackID>
+=======
+<<<<<<< HEAD
+          <PackID>Keil.STM32F1xx_DFP.2.1.0</PackID>
+=======
+          <PackID>Keil.STM32F1xx_DFP.1.1.0</PackID>
+>>>>>>> b9b49c6a3809620a8135636d9c0ccfdd4cf08834
+>>>>>>> 46ee1b890d018862eefe9aa33d58987326c7f4b0:12-使用固件库点亮LED/2-点亮LED/Project/RVMDK（uv5）/BH-F103.uvprojx
           <PackURL>http://www.keil.com/pack/</PackURL>
           <Cpu>IRAM(0x20000000,0x10000) IROM(0x08000000,0x80000) CPUTYPE("Cortex-M3") CLOCK(12000000) ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -185,6 +201,13 @@
             <uocXRam>0</uocXRam>
             <RvdsVP>0</RvdsVP>
             <RvdsMve>0</RvdsMve>
+<<<<<<< HEAD:12-使用固件库点亮LED/2-点亮LED/Project/WEI-F103.uvprojx
+=======
+<<<<<<< HEAD
+=======
+            <RvdsCdeCp>0</RvdsCdeCp>
+>>>>>>> b9b49c6a3809620a8135636d9c0ccfdd4cf08834
+>>>>>>> 46ee1b890d018862eefe9aa33d58987326c7f4b0:12-使用固件库点亮LED/2-点亮LED/Project/RVMDK（uv5）/BH-F103.uvprojx
             <hadIRAM2>0</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
@@ -351,7 +374,15 @@
             <NoWarn>0</NoWarn>
             <uSurpInc>0</uSurpInc>
             <useXO>0</useXO>
+<<<<<<< HEAD:12-使用固件库点亮LED/2-点亮LED/Project/WEI-F103.uvprojx
             <uClangAs>0</uClangAs>
+=======
+<<<<<<< HEAD
+            <uClangAs>0</uClangAs>
+=======
+            <ClangAsOpt>4</ClangAsOpt>
+>>>>>>> b9b49c6a3809620a8135636d9c0ccfdd4cf08834
+>>>>>>> 46ee1b890d018862eefe9aa33d58987326c7f4b0:12-使用固件库点亮LED/2-点亮LED/Project/RVMDK（uv5）/BH-F103.uvprojx
             <VariousControls>
               <MiscControls></MiscControls>
               <Define></Define>
