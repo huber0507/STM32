@@ -857,18 +857,18 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-        32          0          0          0          0        515   bsp_led.o
+        32          0          0          0          0        507   bsp_led.o
          0          0          0          0          0       4540   core_cm3.o
-        68          4          0          0          0        960   main.o
-       176         12          0          0          0       1595   server.o
-        36          8        304          0       1024        892   startup_stm32f10x_hd.o
-       278          0          0          0          0       2024   stm32f10x_gpio.o
-        32          6          0          0          0        605   stm32f10x_rcc.o
-       392         62          0          0          0       4377   stm32f10x_tim.o
-       328         28          0          0          0     234081   system_stm32f10x.o
+        68          4          0          0          0        944   main.o
+       176         12          0          0          0       1571   server.o
+        36          8        304          0       1024        884   startup_stm32f10x_hd.o
+       278          0          0          0          0       2008   stm32f10x_gpio.o
+        32          6          0          0          0        593   stm32f10x_rcc.o
+       392         62          0          0          0       4321   stm32f10x_tim.o
+       328         28          0          0          0     234017   system_stm32f10x.o
 
     ----------------------------------------------------------------------
-      1350        120        320          0       1024     249589   Object Totals
+      1350        120        320          0       1024     249385   Object Totals
          0          0         16          0          0          0   (incl. Generated)
          8          0          0          0          0          0   (incl. Padding)
 
@@ -907,8 +907,8 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      1436        136        320          0       1024     249081   Grand Totals
-      1436        136        320          0       1024     249081   ELF Image Totals
+      1436        136        320          0       1024     248877   Grand Totals
+      1436        136        320          0       1024     248877   ELF Image Totals
       1436        136        320          0          0          0   ROM Totals
 
 ==============================================================================

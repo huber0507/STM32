@@ -31,7 +31,7 @@
 //360度舵机测试函数
 void Server_360_Forward(void)
 {
-	TIM_SetCompare1(ADVANCE_TIM,5);//0.5ms --> 正向最大转速
+	TIM_SetCompare1(ADVANCE_TIM,5);//0.5ms --> 正向最大转速   这里记得修改通道，如果忘记修改通道会导致舵机无法正常启动
 	delay_ms(10000);
 	
 	TIM_SetCompare1(ADVANCE_TIM,15);//1.5ms --> 速度为0
