@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_HD, USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\Libraries\CMSIS;..\..\User;..\..\Libraries\FWlib\inc;..\..\User\Led;..\..\User\hcsr501;..\..\User\server;..\..\User\delay;..\..\User\lcd;..\..\User\delay;..\..\User\oled</IncludePath>
+              <IncludePath>..\..\Libraries\CMSIS;..\..\User;..\..\Libraries\FWlib\inc;..\..\User\Led;..\..\User\hcsr501;..\..\User\server;..\..\User\delay;..\..\User\lcd;..\..\User\delay;..\..\User\oled;..\..\User\oled;..\..\User\hc_sr04</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -576,6 +576,16 @@
               <FileName>OLED.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\User\oled\OLED.c</FilePath>
+            </File>
+            <File>
+              <FileName>OLED_Data.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\User\oled\OLED_Data.c</FilePath>
+            </File>
+            <File>
+              <FileName>hc_sr04.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\User\hc_sr04\hc_sr04.c</FilePath>
             </File>
           </Files>
         </Group>

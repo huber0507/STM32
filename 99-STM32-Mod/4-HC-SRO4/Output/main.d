@@ -30,3 +30,7 @@
 ..\..\output\main.o: ..\..\Libraries\FWlib\inc\misc.h
 ..\..\output\main.o: ..\..\User\delay\Delay.h
 ..\..\output\main.o: ..\..\User\oled\OLED.h
+..\..\output\main.o: ..\..\User\oled\OLED_Data.h
+..\..\output\main.o: ..\..\User\hc_sr04\hc_sr04.h
+..\..\output\main.o: ..\..\User\Led\bsp_led.h
+..\..\output\main.o: ..\..\User\stm32f10x_it.h

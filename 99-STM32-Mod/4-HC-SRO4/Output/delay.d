@@ -28,4 +28,4 @@
 ..\..\output\delay.o: ..\..\Libraries\FWlib\inc\stm32f10x_usart.h
 ..\..\output\delay.o: ..\..\Libraries\FWlib\inc\stm32f10x_wwdg.h
 ..\..\output\delay.o: ..\..\Libraries\FWlib\inc\misc.h
-..\..\output\delay.o: ..\..\User\delay\delay.h
+..\..\output\delay.o: ..\..\User\delay\Delay.h

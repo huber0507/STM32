@@ -1,30 +1,75 @@
 #ifndef __OLED_H
 #define __OLED_H
 
-//void OLED_Init(void);
-//void OLED_Clear(void);
-//void OLED_ShowChar(uint8_t Line, uint8_t Column, char Char);
-//void OLED_ShowString(uint8_t Line, uint8_t Column, char *String);
-//void OLED_ShowNum(uint8_t Line, uint8_t Column, uint32_t Number, uint8_t Length);
-//void OLED_ShowSignedNum(uint8_t Line, uint8_t Column, int32_t Number, uint8_t Length);
-//void OLED_ShowHexNum(uint8_t Line, uint8_t Column, uint32_t Number, uint8_t Length);
-//void OLED_ShowBinNum(uint8_t Line, uint8_t Column, uint32_t Number, uint8_t Length);
+#include <stdint.h>
+#include "OLED_Data.h"
+
+/*参数宏定义*********************/
+
+/*FontSize参数取值*/
+/*此参数值不仅用于判断，而且用于计算横向字符偏移，默认值为字体像素宽度*/
+#define OLED_8X16				8
+#define OLED_6X8				6
+
+/*IsFilled参数数值*/
+#define OLED_UNFILLED			0
+#define OLED_FILLED				1
 
 
-#define OLED_ADDRESS	0x78 													//通过调整0R电阻,屏可以0x78和0x7A两个地址 -- 默认0x78
+/************************** OLED 连接引脚定义********************************/
+#define      	OLED_SCK_APBxClock_FUN              RCC_APB2PeriphClockCmd
+#define       OLED_GPIO_CLK                       RCC_APB2Periph_GPIOB
 
-void I2C_Configuration(void);    										//配置CPU的硬件I2C
-void I2C_WriteByte(uint8_t addr,uint8_t data);			//向寄存器地址写一个byte的数据
-void WriteCmd(unsigned char I2C_Command);						//写命令
-void WriteDat(unsigned char I2C_Data);							//写数据
-void OLED_Init(void);																 //OLED初始化
-void OLED_SetPos(unsigned char x, unsigned char y);		//设置起始点坐标  
-void OLED_Fill(unsigned char fill_Data);						//全屏填充
-void OLED_CLS(void);																//清屏
-void OLED_ON(void);																	//唤醒
-void OLED_OFF(void);																//睡眠
-void OLED_ShowStr(unsigned char x, unsigned char y, unsigned char ch[], unsigned char TextSize);		 //显示字符串(字体大小有6*8和8*16两种)
-void OLED_ShowCN(unsigned char x, unsigned char y, unsigned char N);																	 //显示中文(中文需要先取模，然后放到codetab.h中)
-void OLED_DrawBMP(unsigned char x0,unsigned char y0,unsigned char x1,unsigned char y1,unsigned char BMP[]);			 //BMP图片
+
+#define       OLED_GPIO_PORT                     	GPIOB
+#define       OLED_SDA_PIN                      	GPIO_Pin_7
+#define       OLED_SCL_PIN                       	GPIO_Pin_6
+
+
+/*********************参数宏定义*/
+
+
+/*函数声明*********************/
+
+/*初始化函数*/
+void OLED_Init(void);
+
+/*更新函数*/
+void OLED_Update(void);
+void OLED_UpdateArea(uint8_t X, uint8_t Y, uint8_t Width, uint8_t Height);
+
+/*显存控制函数*/
+void OLED_Clear(void);
+void OLED_ClearArea(uint8_t X, uint8_t Y, uint8_t Width, uint8_t Height);
+void OLED_Reverse(void);
+void OLED_ReverseArea(uint8_t X, uint8_t Y, uint8_t Width, uint8_t Height);
+
+/*显示函数*/
+void OLED_ShowChar(uint8_t X, uint8_t Y, char Char, uint8_t FontSize);
+void OLED_ShowString(uint8_t X, uint8_t Y, char *String, uint8_t FontSize);
+void OLED_ShowNum(uint8_t X, uint8_t Y, uint32_t Number, uint8_t Length, uint8_t FontSize);
+void OLED_ShowSignedNum(uint8_t X, uint8_t Y, int32_t Number, uint8_t Length, uint8_t FontSize);
+void OLED_ShowHexNum(uint8_t X, uint8_t Y, uint32_t Number, uint8_t Length, uint8_t FontSize);
+void OLED_ShowBinNum(uint8_t X, uint8_t Y, uint32_t Number, uint8_t Length, uint8_t FontSize);
+void OLED_ShowFloatNum(uint8_t X, uint8_t Y, double Number, uint8_t IntLength, uint8_t FraLength, uint8_t FontSize);
+void OLED_ShowChinese(uint8_t X, uint8_t Y, char *Chinese);
+void OLED_ShowImage(uint8_t X, uint8_t Y, uint8_t Width, uint8_t Height, const uint8_t *Image);
+void OLED_Printf(uint8_t X, uint8_t Y, uint8_t FontSize, char *format, ...);
+
+/*绘图函数*/
+void OLED_DrawPoint(uint8_t X, uint8_t Y);
+uint8_t OLED_GetPoint(uint8_t X, uint8_t Y);
+void OLED_DrawLine(uint8_t X0, uint8_t Y0, uint8_t X1, uint8_t Y1);
+void OLED_DrawRectangle(uint8_t X, uint8_t Y, uint8_t Width, uint8_t Height, uint8_t IsFilled);
+void OLED_DrawTriangle(uint8_t X0, uint8_t Y0, uint8_t X1, uint8_t Y1, uint8_t X2, uint8_t Y2, uint8_t IsFilled);
+void OLED_DrawCircle(uint8_t X, uint8_t Y, uint8_t Radius, uint8_t IsFilled);
+void OLED_DrawEllipse(uint8_t X, uint8_t Y, uint8_t A, uint8_t B, uint8_t IsFilled);
+void OLED_DrawArc(uint8_t X, uint8_t Y, uint8_t Radius, int16_t StartAngle, int16_t EndAngle, uint8_t IsFilled);
+
+/*********************函数声明*/
 
 #endif
+
+
+/*****************江协科技|版权所有****************/
+/*****************jiangxiekeji.com*****************/

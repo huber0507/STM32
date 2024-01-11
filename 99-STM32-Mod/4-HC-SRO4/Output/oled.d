@@ -28,6 +28,9 @@
 ..\..\output\oled.o: ..\..\Libraries\FWlib\inc\stm32f10x_usart.h
 ..\..\output\oled.o: ..\..\Libraries\FWlib\inc\stm32f10x_wwdg.h
 ..\..\output\oled.o: ..\..\Libraries\FWlib\inc\misc.h
-..\..\output\oled.o: ..\..\User\oled\OLED_Font.h
 ..\..\output\oled.o: ..\..\User\oled\OLED.h
-..\..\output\oled.o: ..\..\User\delay\delay.h
+..\..\output\oled.o: ..\..\User\oled\OLED_Data.h
+..\..\output\oled.o: D:\Altlog\SoftWare\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+..\..\output\oled.o: D:\Altlog\SoftWare\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+..\..\output\oled.o: D:\Altlog\SoftWare\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+..\..\output\oled.o: D:\Altlog\SoftWare\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h

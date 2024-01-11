@@ -30,6 +30,8 @@
 "..\..\output\server.o"
 "..\..\output\delay.o"
 "..\..\output\oled.o"
+"..\..\output\oled_data.o"
+"..\..\output\hc_sr04.o"
 --library_type=microlib --strict --scatter "..\..\Output\SG90.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
